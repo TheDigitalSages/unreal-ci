@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/eddiebeazer/ue4-ci/pkgs/clean"
-	"github.com/eddiebeazer/ue4-ci/pkgs/jsonToXml"
-	"github.com/eddiebeazer/ue4-ci/pkgs/parseLintReport"
-	"github.com/eddiebeazer/ue4-ci/pkgs/projectVersion"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/clean"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/jsonToXml"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/parseLintReport"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/projectVersion"
 	"log"
 	"os"
 
@@ -13,10 +13,10 @@ import (
 
 func main() {
 	app := &cli.App{
-		Name:      "ue4-ci helper",
-		Usage:     "Tools for CI pipelines",
+		Name:      "unreal-ci",
+		Usage:     "Tools for Unreal CI pipelines",
 		Version:   "0.1.0",
-		UsageText: "Tools for CI pipelines.  This CLI will assume the command is being ran in a directory with a .uproject file in it",
+		UsageText: "Tools for Unreal CI pipelines.  This CLI will assume the command is being ran in a directory with a .uproject file in it",
 		Suggest:   true,
 		Authors: []*cli.Author{
 			{
@@ -25,7 +25,6 @@ func main() {
 			},
 		},
 		Commands: []*cli.Command{
-
 			{
 				Name:  "teamcity",
 				Usage: "Commands that help with team city builds",
@@ -38,7 +37,7 @@ func main() {
 								Name:     "json",
 								Aliases:  []string{"j"},
 								Value:    "",
-								Usage:    "Location of the linter v2 json",
+								Usage:    "Location of the linter v2 json output",
 								Required: true,
 							},
 						},
@@ -58,11 +57,10 @@ func main() {
 						Usage: "Deletes the given archive/dist folder from the project",
 						Flags: []cli.Flag{
 							&cli.StringFlag{
-								Name:     "directory",
-								Aliases:  []string{"d"},
-								Value:    "",
-								Usage:    "Location of the archive/dist folder to delete. Relative or absolute",
-								Required: true,
+								Name:    "directory",
+								Aliases: []string{"d"},
+								Value:   "dist",
+								Usage:   "Location of the archive/dist folder to delete. Relative or absolute.  Defaults to dist",
 							},
 						},
 						Action: func(cCtx *cli.Context) error {
@@ -77,7 +75,7 @@ func main() {
 				Usage: "Parses the UAT tools output json into JUnit XML for ci's",
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:     "jsonFile",
+						Name:     "json",
 						Aliases:  []string{"j"},
 						Value:    "",
 						Usage:    "UAT test output json file",
@@ -157,18 +155,17 @@ func main() {
 						Usage: "Sets the project version to the inputted string",
 						Flags: []cli.Flag{
 							&cli.StringFlag{
-								Name:     "setVersion",
-								Aliases:  []string{"s"},
+								Name:     "Version",
+								Aliases:  []string{"v"},
 								Value:    "",
 								Usage:    "Version to set in Project",
 								Required: true,
 							},
 							&cli.StringFlag{
-								Name:     "iniPath",
-								Aliases:  []string{"i"},
-								Value:    "",
-								Usage:    "file path to the DefaultGame ini file",
-								Required: true,
+								Name:    "iniPath",
+								Aliases: []string{"i"},
+								Value:   "./Config/DefaultGame.ini",
+								Usage:   "file path to the DefaultGame ini file.  Defaults to ./Config/DefaultGame.ini",
 							},
 						},
 						Action: func(cCtx *cli.Context) error {
@@ -182,11 +179,10 @@ func main() {
 						Usage: "Prints the current project version",
 						Flags: []cli.Flag{
 							&cli.StringFlag{
-								Name:     "iniPath",
-								Aliases:  []string{"i"},
-								Value:    "",
-								Usage:    "file path to the DefaultGame ini file",
-								Required: true,
+								Name:    "iniPath",
+								Aliases: []string{"i"},
+								Value:   "./Config/DefaultGame.ini",
+								Usage:   "file path to the DefaultGame ini file.  Defaults to ./Config/DefaultGame.ini",
 							},
 						},
 						Action: func(cCtx *cli.Context) error {

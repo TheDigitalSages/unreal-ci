@@ -21,3 +21,6 @@ coverage.xml
 pkgs/jsonToXml/failedXml.xml
 
 pkgs/jsonToXml/successTest.xml
+/dist/
+
+dist/
