@@ -1,4 +1,4 @@
-module github.com/eddiebeazer/ue4-ci
+module github.com/TheDigitalSages/unreal-ci
 
 go 1.20
 

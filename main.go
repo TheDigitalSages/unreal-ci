@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/eddiebeazer/ue4-ci/pkgs/clean"
-	"github.com/eddiebeazer/ue4-ci/pkgs/jsonToXml"
-	"github.com/eddiebeazer/ue4-ci/pkgs/parseLintReport"
-	"github.com/eddiebeazer/ue4-ci/pkgs/projectVersion"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/clean"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/jsonToXml"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/parseLintReport"
+	"github.com/TheDigitalSages/unreal-ci/pkgs/projectVersion"
 	"log"
 	"os"
 
