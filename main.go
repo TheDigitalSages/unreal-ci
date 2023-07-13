@@ -155,7 +155,7 @@ func main() {
 						Usage: "Sets the project version to the inputted string",
 						Flags: []cli.Flag{
 							&cli.StringFlag{
-								Name:     "Version",
+								Name:     "version",
 								Aliases:  []string{"v"},
 								Value:    "",
 								Usage:    "Version to set in Project",
@@ -169,7 +169,7 @@ func main() {
 							},
 						},
 						Action: func(cCtx *cli.Context) error {
-							setVersion := cCtx.String("setVersion")
+							setVersion := cCtx.String("version")
 							defaultGameIniPath := cCtx.String("iniPath")
 							return projectVersion.ManuallySetVersion(setVersion, defaultGameIniPath)
 						},
