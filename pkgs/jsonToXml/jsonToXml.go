@@ -70,7 +70,7 @@ type TestEvent struct {
 func ParseTestOutput(jsonFilePath string, outPath string, testSuiteName string) error {
 	jsonData, err := ioutil.ReadFile(jsonFilePath)
 	if err != nil {
-		return cli.Exit(fmt.Errorf("error reading json file: %s", err), 1)
+		return cli.Exit(fmt.Errorf("error reading json file: %s, err: %s", jsonFilePath, err), 1)
 	}
 
 	jsonDataWithoutBom, err := ioutil.ReadAll(utfbom.SkipOnly(bytes.NewReader(jsonData)))

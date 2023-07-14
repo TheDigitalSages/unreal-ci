@@ -78,7 +78,7 @@ func main() {
 						Name:     "json",
 						Aliases:  []string{"j"},
 						Value:    "",
-						Usage:    "UAT test output json file",
+						Usage:    "Unreal Automation Testing test output json file",
 						Required: true,
 					},
 					&cli.StringFlag{
@@ -91,7 +91,7 @@ func main() {
 					&cli.StringFlag{
 						Name:    "testSuiteName",
 						Aliases: []string{"t"},
-						Value:   "Unreal Automation Testing JUnit Test Report",
+						Value:   "Unreal Automation Testing JUnit Report",
 						Usage:   "Test suite name.  Optional",
 					},
 				},
