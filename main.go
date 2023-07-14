@@ -75,10 +75,10 @@ func main() {
 				Usage: "Parses the UAT tools output json into JUnit XML for ci's",
 				Flags: []cli.Flag{
 					&cli.StringFlag{
-						Name:     "json",
+						Name:     "jsonFile",
 						Aliases:  []string{"j"},
 						Value:    "",
-						Usage:    "UAT test output json file",
+						Usage:    "Unreal Automation Testing test output json file",
 						Required: true,
 					},
 					&cli.StringFlag{
@@ -91,7 +91,7 @@ func main() {
 					&cli.StringFlag{
 						Name:    "testSuiteName",
 						Aliases: []string{"t"},
-						Value:   "Unreal Automation Testing JUnit Test Report",
+						Value:   "Unreal Automation Testing JUnit Report",
 						Usage:   "Test suite name.  Optional",
 					},
 				},
