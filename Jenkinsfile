@@ -1,3 +1,0 @@
-goPipeline (
-    deploy: false
-)
