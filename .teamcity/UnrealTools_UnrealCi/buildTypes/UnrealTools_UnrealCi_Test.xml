@@ -3,7 +3,9 @@
   <name>Test</name>
   <description />
   <settings ref="GoTest">
-    <parameters />
+    <parameters>
+      <param name="PROJECT_NAME" value="UnrealCI" />
+    </parameters>
     <build-runners />
     <vcs-settings>
       <vcs-entry-ref root-id="UnrealTools_UnrealCi" />
