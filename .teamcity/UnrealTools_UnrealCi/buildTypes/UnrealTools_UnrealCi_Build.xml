@@ -6,7 +6,9 @@
     <options>
       <option name="checkoutMode" value="ON_AGENT" />
     </options>
-    <parameters />
+    <parameters>
+      <param name="PROJECT_NAME" value="UnrealCI" />
+    </parameters>
     <build-runners />
     <vcs-settings>
       <vcs-entry-ref root-id="UnrealTools_UnrealCi" />
