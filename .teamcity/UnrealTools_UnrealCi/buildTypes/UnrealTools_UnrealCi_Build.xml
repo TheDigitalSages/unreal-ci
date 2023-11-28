@@ -9,7 +9,19 @@
     <parameters>
       <param name="PROJECT_NAME" value="UnrealCI" />
     </parameters>
-    <build-runners />
+    <build-runners>
+      <runner id="RUNNER_8" name="Build" type="simpleRunner">
+        <parameters>
+          <param name="plugin.docker.imageId" value="golang:1.20" />
+          <param name="plugin.docker.imagePlatform" value="windows" />
+          <param name="script.content"><![CDATA[go install github.com/goreleaser/goreleaser@latest
+go get -u -d ./...
+goreleaser release --snapshot --clean]]></param>
+          <param name="teamcity.step.mode" value="default" />
+          <param name="use.custom.script" value="true" />
+        </parameters>
+      </runner>
+    </build-runners>
     <vcs-settings>
       <vcs-entry-ref root-id="UnrealTools_UnrealCi" />
     </vcs-settings>
