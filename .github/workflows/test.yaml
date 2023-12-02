@@ -1,10 +1,20 @@
+name: Testing
 on:
-  pull_request:
+  workflow_dispatch:
   push:
+    branches:
+      - 'main'
+    tags:
+      - '*'
+  pull_request:
+    branches:
+      - 'main'
+
 permissions:
   contents: read
   actions: read
   checks: write
+
 jobs:
   build-test:
     name: Test
