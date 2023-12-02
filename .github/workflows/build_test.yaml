@@ -1,0 +1,68 @@
+name: Build and Test
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+
+permissions:
+  contents: read
+  issues: read
+  actions: read
+  checks: write
+  pull-requests: write
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+      - name: Install dependencies
+        run: |
+          go get ./...
+          go install github.com/jstemmer/go-junit-report/v2@latest
+          mkdir reports
+      - name: Unit Tests
+        run: go test -v 2>&1 ./... | go-junit-report -set-exit-code > ./reports/report.xml
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Unit Tests
+          path: reports/*.xml
+          reporter: jest-junit
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action/composite@v2
+        if: always()
+        with:
+          files: |
+            ./reports/*.xml
+            ./reports/*.trx
+            ./reports/*.json
+  build:
+    name: Build
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+      - name: Install dependencies
+        run: go get ./...
+      - name: Install GoReleaser
+        uses: goreleaser/goreleaser-action@v5
+        with:
+          install-only: true
+      - name: Building App
+        run: goreleaser release --snapshot --clean

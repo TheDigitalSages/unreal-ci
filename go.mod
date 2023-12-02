@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/dimchansky/utfbom v1.1.1
 	github.com/stretchr/testify v1.8.4
-	github.com/urfave/cli/v2 v2.24.3
+	github.com/urfave/cli/v2 v2.25.7
 	gopkg.in/ini.v1 v1.67.0
 )
 
