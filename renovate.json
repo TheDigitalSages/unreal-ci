@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "config:best-practices",
+    "config:js-app",
+    "npm:unpublishSafe",
+    ":automergeMinor",
+    ":automergeRequireAllStatusChecks",
+    ":npm",
+    ":disableRateLimiting",
+    ":enableVulnerabilityAlerts",
+    "group:monorepos"
+  ],
+  "assignees": ["eddiebeazer"],
+  "lockFileMaintenance": { "enabled": true }
+}
