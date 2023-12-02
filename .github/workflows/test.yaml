@@ -1,0 +1,31 @@
+on:
+  pull_request:
+  push:
+permissions:
+  contents: read
+  actions: read
+  checks: write
+jobs:
+  build-test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout code
+      - name: Setup Go ${{ matrix.go-version }}
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+      - name: Install dependencies
+        run: |
+          go get ./...
+          go install github.com/jstemmer/go-junit-report/v2@latest
+      - name: Unit Tests
+        run: go test -v 2>&1 ./... | go-junit-report -set-exit-code > reports/report.xml
+      - name: Test Report
+        uses: dorny/test-reporter@v1
+        if: success() || failure()    # run this step even if previous step failed
+        with:
+          name: Unit Tests            # Name of the check run which will be created
+          path: reports/jest-*.xml    # Path to test results
+          reporter: jest-junit        # Format of test results
