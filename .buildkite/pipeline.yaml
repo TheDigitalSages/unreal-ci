@@ -2,6 +2,7 @@ steps:
   - group: ":test_tube: Test"
     key: "test"
     steps:
+    - command: printenv
     - label: ":test_tube: Testing"
       command: "earthly +test"
       plugins:
