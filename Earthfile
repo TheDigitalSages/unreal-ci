@@ -12,6 +12,7 @@ deps:
 test:
     FROM +deps
     COPY . .
+    RUN go install github.com/jstemmer/go-junit-report/v2@latest
     RUN go test -v 2>&1 ./... | go-junit-report -set-exit-code > ./junit-results.xml
     SAVE ARTIFACT junit-results.xml AS LOCAL junit-results.xml
 
