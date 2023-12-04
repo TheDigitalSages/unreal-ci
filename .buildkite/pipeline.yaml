@@ -1,0 +1,9 @@
+steps:
+  - group: ":test_tube: Test"
+    key: "test"
+    steps:
+       - command: "earthly +test"
+  - group: ":hammer: Build"
+    key: "build"
+    steps:
+       - command: "earthly +build"
