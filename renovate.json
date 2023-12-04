@@ -1,15 +1,11 @@
 {
   "extends": [
     "config:best-practices",
-    "config:js-app",
-    "npm:unpublishSafe",
-    ":automergeBranch",
     ":automergeMinor",
     ":automergeRequireAllStatusChecks",
-    ":npm",
     ":disableRateLimiting",
-    ":enableVulnerabilityAlerts",
-    "group:monorepos"
+    ":automergeBranch",
+    "schedule:weekdays"
   ],
   "assignees": ["eddiebeazer"],
   "lockFileMaintenance": { "enabled": true }
