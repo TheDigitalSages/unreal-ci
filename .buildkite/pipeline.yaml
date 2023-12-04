@@ -2,8 +2,14 @@ steps:
   - group: ":test_tube: Test"
     key: "test"
     steps:
-       - command: "earthly +test"
+    - label: ":test_tube: Testing"
+      command: "earthly +test"
+      plugins:
+        - test-collector#v1.0.0:
+            files: "junit-results.xml"
+            format: "junit"
   - group: ":hammer: Build"
     key: "build"
     steps:
-       - command: "earthly +build"
+      - label: ":hammer: Building"
+        command: "earthly +build"
