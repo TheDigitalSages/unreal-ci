@@ -8,6 +8,7 @@ steps:
         - test-collector#v1.0.0:
             files: "junit-results.xml"
             format: "junit"
+            api-token-env-name: "UNREAL_CI_TEST_TOKEN"
   - group: ":hammer: Build"
     key: "build"
     steps:
