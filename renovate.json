@@ -3,6 +3,7 @@
     "config:best-practices",
     "config:js-app",
     "npm:unpublishSafe",
+    ":automergeBranch",
     ":automergeMinor",
     ":automergeRequireAllStatusChecks",
     ":npm",
