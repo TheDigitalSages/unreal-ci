@@ -20,7 +20,7 @@ test:
 coverage:
     FROM +deps
     COPY . .
-    RUN go test -race -coverprofile=coverage.out -covermode=atomic
+    RUN go test ./... -race -coverprofile=coverage.out -covermode=atomic
     SAVE ARTIFACT coverage.out AS LOCAL coverage.out
 
 build:
