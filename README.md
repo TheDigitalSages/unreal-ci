@@ -1,7 +1,11 @@
 # unreal-ci
-[![License](https://img.shields.io/github/license/eddiebeazer/ue4-ci?color=blue)](https://opensource.org/licenses/Apache-2.0) 
+[![License](https://img.shields.io/github/license/eddiebeazer/unreal-ci?color=blue)](https://opensource.org/license/mit/) 
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/eddiebeazer/ue4-ci)](https://goreportcard.com/report/github.com/eddiebeazer/ue4-ci)
+[![codecov](https://codecov.io/gh/eddiebeazer/unreal-ci/graph/badge.svg?token=N622BZP1RR)](https://codecov.io/gh/eddiebeazer/unreal-ci)
+
+[![Build status](https://badge.buildkite.com/a90cdd645739568fa23c96aaebb46e5e06b0b03d87f6961e67.svg)](https://buildkite.com/the-digital-sages/unreal-ci)
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/eddiebeazer/unreal-ci)](https://goreportcard.com/report/github.com/eddiebeazer/unreal-ci)
 
 ## What Unreal CI does
 
