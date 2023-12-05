@@ -1,0 +1,27 @@
+comment:
+  layout: "header, diff, flags, components"
+
+component_management:
+  default_rules:
+    statuses:
+      - type: project
+        target: auto
+        branches:
+          - "!main"
+  individual_components:
+    - component_id: module_clean
+      name: clean
+      paths:
+        - pkgs/clean/**
+    - component_id: module_jsonToXml
+      name: jsonToXml
+      paths:
+        - pkgs/jsonToXml/**
+    - component_id: module_parseLintReport
+      name: parseLintReport
+      paths:
+        - pkgs/parseLintReport/**
+    - component_id: module_projectVersion
+      name: projectVersion
+      paths:
+        - pkgs/projectVersion/**
