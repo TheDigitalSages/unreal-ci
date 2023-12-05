@@ -11,9 +11,7 @@ steps:
     - label: ":goggles: Code Coverage"
       command: "earthly +coverage"
       plugins:
-        - test-collector#v1.0.0:
-            files: "junit-results.xml"
-            format: "junit"
+        - joscha/codecov#v3.1.0
   - group: ":hammer: Build"
     key: "build"
     steps:
