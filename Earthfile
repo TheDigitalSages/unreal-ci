@@ -6,6 +6,7 @@ deps:
     COPY go.mod go.sum ./
     RUN go mod download
     RUN go install github.com/jstemmer/go-junit-report/v2@latest
+    RUN go install github.com/goreleaser/goreleaser@latest
     # Output these back in case go mod download changes them.
     SAVE ARTIFACT go.mod AS LOCAL go.mod
     SAVE ARTIFACT go.sum AS LOCAL go.sum
