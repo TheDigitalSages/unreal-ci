@@ -5,7 +5,8 @@
     ":disableRateLimiting",
     ":automergeBranch",
     "schedule:weekdays",
-    "group:allNonMajor"
+    "group:allNonMajor",
+    ":automergeRequireAllStatusChecks"
   ],
   "assignees": ["eddiebeazer"],
   "lockFileMaintenance": { "enabled": true }
