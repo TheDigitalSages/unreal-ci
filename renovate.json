@@ -8,6 +8,5 @@
     "group:allNonMajor",
     ":automergeRequireAllStatusChecks"
   ],
-  "assignees": ["eddiebeazer"],
-  "lockFileMaintenance": { "enabled": true }
+  "assignees": ["eddiebeazer"]
 }
