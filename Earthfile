@@ -17,6 +17,12 @@ test:
     RUN go test -v 2>&1 ./... | go-junit-report -set-exit-code > ./junit-results.xml
     SAVE ARTIFACT junit-results.xml AS LOCAL junit-results.xml
 
+test:
+    FROM +deps
+    COPY . .
+    RUN go test -race -coverprofile=coverage.out -covermode=atomic
+    SAVE ARTIFACT coverage.out AS LOCAL coverage.out
+
 build:
     FROM +deps
     COPY . .

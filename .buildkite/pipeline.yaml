@@ -2,8 +2,14 @@ steps:
   - group: ":test_tube: Test"
     key: "test"
     steps:
-    - label: ":test_tube: Testing"
+    - label: ":lab_coat: Unit Tests"
       command: "earthly +test"
+      plugins:
+        - test-collector#v1.0.0:
+            files: "junit-results.xml"
+            format: "junit"
+    - label: ":goggles: Code Coverage"
+      command: "earthly +coverage"
       plugins:
         - test-collector#v1.0.0:
             files: "junit-results.xml"
