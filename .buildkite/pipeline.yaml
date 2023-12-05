@@ -1,0 +1,25 @@
+steps:
+  - group: ":test_tube: Test"
+    key: "test"
+    steps:
+    - label: ":lab_coat: Unit Tests"
+      command: "earthly +test"
+      plugins:
+        - test-collector#v1.0.0:
+            files: "junit-results.xml"
+            format: "junit"
+    - label: ":goggles: Code Coverage"
+      command: "earthly +coverage"
+      artifact_paths:
+        - coverage.out
+    - wait: ~
+    - label: ":arrow_up: Uploading to Codecov"
+      command: codecov
+      plugins:
+        - artifacts:
+            download: coverage.out
+  - group: ":hammer: Build"
+    key: "build"
+    steps:
+      - label: ":hammer: Building"
+        command: "earthly +build"
