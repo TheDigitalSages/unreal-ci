@@ -10,11 +10,8 @@ steps:
             format: "junit"
     - label: ":goggles: Code Coverage"
       command: "earthly +coverage"
-      plugins:
-        - joscha/codecov#v3.1.0:
-            pgp_public_key_url: "https://keybase.io/codecovsecurity/pgp_keys.asc"
-            args:
-              - "-s $BUILDKITE_BUILD_CHECKOUT_PATH"
+      artifact_paths:
+        - coverage.out
   - group: ":hammer: Build"
     key: "build"
     steps:
