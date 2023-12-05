@@ -12,6 +12,12 @@ steps:
       command: "earthly +coverage"
       artifact_paths:
         - coverage.out
+    - wait: ~
+    - label: ":arrow_up: Uploading to Codecov"
+      command: codecov
+      plugins:
+        - artifacts:
+            download: coverage.out
   - group: ":hammer: Build"
     key: "build"
     steps:
