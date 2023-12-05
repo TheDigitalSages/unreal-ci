@@ -3,7 +3,6 @@
     "config:best-practices",
     ":automergeMinor",
     ":disableRateLimiting",
-    ":automergePR",
     "schedule:weekdays",
     "group:allNonMajor",
     ":automergeRequireAllStatusChecks"
