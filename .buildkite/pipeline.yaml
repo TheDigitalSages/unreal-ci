@@ -5,7 +5,7 @@ steps:
     - label: ":lab_coat: Unit Tests"
       command: "earthly +test"
       plugins:
-        - test-collector#v1.10.0:
+        - test-collector#v1.10.1:
             files: "junit-results.xml"
             format: "junit"
     - label: ":goggles: Code Coverage"
